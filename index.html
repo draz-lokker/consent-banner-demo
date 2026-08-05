@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Consent Remediation Demo Lab</title>
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+  <main class="container">
+    <p class="eyebrow">Training website</p>
+    <h1>Consent Remediation Demo Lab</h1>
+    <p class="lead">
+      Compare an intentionally broken tracking implementation with a remediated implementation.
+    </p>
+
+    <section class="cards">
+      <article class="card danger">
+        <h2>Broken example</h2>
+        <p>A marketing tracker is hardcoded and executes before the visitor makes a consent choice.</p>
+        <a class="button danger-button" href="broken.html">Open broken page</a>
+      </article>
+
+      <article class="card success">
+        <h2>Remediated example</h2>
+        <p>Consent defaults are established first, and category-specific trackers wait for consent.</p>
+        <a class="button success-button" href="fixed.html">Open fixed page</a>
+      </article>
+    </section>
+
+    <section class="panel">
+      <h2>What to inspect</h2>
+      <ol>
+        <li>Open DevTools → Network and filter for <code>demo-collect</code>.</li>
+        <li>Open DevTools → Application → Cookies and Local Storage.</li>
+        <li>Run <code>dataLayer</code> in the Console.</li>
+        <li>Use GTM Preview after adding your container ID.</li>
+      </ol>
+    </section>
+  </main>
+</body>
+</html>

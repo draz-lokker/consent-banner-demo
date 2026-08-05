@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Broken Consent Demo</title>
+  <link rel="stylesheet" href="assets/styles.css">
+
+  <!-- INTENTIONALLY BROKEN:
+       This marketing tracker is loaded before consent is known. -->
+  <script src="assets/demo-tracker.js"></script>
+  <script>
+    window.demoTracker.load("hardcoded-before-consent");
+  </script>
+
+  <!-- GTM is also loaded immediately. The GTM container can be configured
+       incorrectly to fire marketing tags on All Pages. -->
+  <script src="assets/gtm-loader.js"></script>
+</head>
+<body data-page-mode="broken">
+  <main class="container">
+    <p class="eyebrow danger-text">Intentionally broken</p>
+    <h1>Tracker fires before consent</h1>
+    <p class="lead">
+      This page demonstrates a common failure: a hardcoded tracker executes in the document head
+      before the banner can collect the visitor’s choice.
+    </p>
+
+    <section class="panel">
+      <h2>Expected evidence</h2>
+      <ul>
+        <li>A <code>demo_marketing_id</code> cookie exists before consent.</li>
+        <li><code>demo_marketing_profile</code> appears in local storage.</li>
+        <li>A request containing <code>demo-collect.gif</code> appears in Network.</li>
+        <li>Rejecting later cannot undo the request that already occurred.</li>
+      </ul>
+    </section>
+
+    <section class="panel">
+      <h2>Live event log</h2>
+      <pre id="event-log">Waiting for events…</pre>
+      <button class="button secondary" id="reset-demo">Reset consent and storage</button>
+      <a class="button success-button" href="fixed.html">View remediated page</a>
+    </section>
+  </main>
+
+  <script src="assets/consent-banner.js"></script>
+  <script src="assets/page-tools.js"></script>
+</body>
+</html>

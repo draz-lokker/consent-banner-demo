@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Remediated Consent Demo</title>
+  <link rel="stylesheet" href="assets/styles.css">
+
+  <!-- Establish dataLayer and denied defaults before GTM or optional trackers. -->
+  <script src="assets/consent-defaults.js"></script>
+
+  <!-- The tracker library defines a demo function, but it does not execute yet. -->
+  <script src="assets/demo-tracker.js"></script>
+
+  <!-- GTM loads after consent defaults have been established. -->
+  <script src="assets/gtm-loader.js"></script>
+</head>
+<body data-page-mode="fixed">
+  <main class="container">
+    <p class="eyebrow success-text">Remediated</p>
+    <h1>Trackers wait for consent</h1>
+    <p class="lead">
+      This page defaults optional categories to denied and executes category-specific code only
+      after the visitor grants that category.
+    </p>
+
+    <section class="panel">
+      <h2>Expected evidence</h2>
+      <ul>
+        <li>No marketing cookie or collection request appears before a choice.</li>
+        <li>Reject all keeps optional trackers blocked.</li>
+        <li>Accept all loads the demo analytics and marketing trackers.</li>
+        <li>The page pushes consent events into <code>dataLayer</code> for GTM.</li>
+      </ul>
+    </section>
+
+    <section class="panel">
+      <h2>Live event log</h2>
+      <pre id="event-log">Waiting for events…</pre>
+      <button class="button secondary" id="reset-demo">Reset consent and storage</button>
+      <button class="button secondary" id="open-preferences">Open preferences</button>
+      <a class="button danger-button" href="broken.html">View broken page</a>
+    </section>
+  </main>
+
+  <script src="assets/consent-banner.js"></script>
+  <script src="assets/page-tools.js"></script>
+</body>
+</html>
