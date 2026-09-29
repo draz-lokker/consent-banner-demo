@@ -1,9 +1,9 @@
 // Replace this placeholder with your training GTM container ID.
-const GTM_ID = "GTM-W76F8RBR";
+const GTM_ID = "GTM-XXXXXXXX";
 
 window.dataLayer = window.dataLayer || [];
 
-if (GTM_ID !== "GTM-W76F8RBR") {
+if (GTM_ID !== "GTM-XXXXXXXX") {
   (function (w, d, s, l, i) {
     w[l] = w[l] || [];
     w[l].push({
