@@ -1,5 +1,5 @@
 // Replace this placeholder with your training GTM container ID.
-const GTM_ID = "GTM-XXXXXXXX";
+const GTM_ID = "GTM-W76F8RBR";
 
 window.dataLayer = window.dataLayer || [];
 
